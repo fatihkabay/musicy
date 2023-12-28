@@ -3,22 +3,22 @@ import styled from "styled-components";
 
 export default function Login() {
   const handleClick = () => {
-    const clientId = "0ea738d3465b4c9aabbcfeef2aa3d246";
+    const clientId = "85c377fdd76647fe877fa37ef5d254e8";
     const redirectUrl = "http://localhost:3000/";
     const apiUrl = "https://accounts.spotify.com/authorize";
     const scope = [
-      "user-read-mail",
-      "user-read-private",
-      "user-modify-playback-state",
-      "user-read-playback-state",
-      "user-read-currently-playing",
-      "user-read-recently-played",
-      "user-read-playback-position",
-      "user-top-read",
+      'user-read-email',
+      'user-read-private',
+      'user-read-playback-state',
+      'user-modify-playback-state',
+      'user-read-currently-playing',
+      'user-read-playback-position',
+      'user-top-read',
+      'user-read-recently-played',
     ];
     window.location.href = `${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUrl}&scope=${scope.join(
       ""
-    )}&response_type=token&show_dailog=true`;
+    )}&response_type=token&show_daialog=true`;
   };
   return (
     <Container>

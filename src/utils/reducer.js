@@ -9,7 +9,6 @@ const reducer = (state, action) => {
     case reducerCases.SET_TOKEN: {
       return {
         ...state,
-        token: action.token,
       };
     }
     default:

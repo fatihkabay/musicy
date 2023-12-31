@@ -1,17 +1,16 @@
-import React, { useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
-import { useStateProvider } from "./utils/StateProvider";
-import { reducerCases } from "./utils/Constants";
-import Spotify from "./components/Spotify";
+import Musicy from "./components/Musicy";
 
 export default function App() {
-  const [{ token }, dispatch] = useStateProvider();
-  useEffect(() => {
-    const hash = window.location.hash;
-    if (hash) {
-      const token = hash.substring(1).split("&")[0].split("=")[1];
-      dispatch({ type: reducerCases.SET_TOKEN, token });
-    }
-  }, [token, dispatch]);
-  return <div>{token ? <Spotify /> : <Login />}</div>;
+  return (
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/musicy" element={<Musicy />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
 }
